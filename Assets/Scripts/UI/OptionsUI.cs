@@ -85,7 +85,7 @@ public class OptionsUI : MonoBehaviour
 
     private void Start()
     {
-        Gamemanager.Instance.OnGameUnPaused += Gamemanager_OnGameUnPaused;
+        KitchenGameManager.Instance.OnLocalGameUnPaused += Gamemanager_OnGameUnPaused;
         UpdateVisual();
         HidePressAnyKeyToRebind();
         HideOptionsUI();

@@ -1,3 +1,4 @@
+using Unity.Netcode;
 using UnityEngine;
 
 public class ClearCounter : BaseCounter
@@ -28,18 +29,14 @@ public class ClearCounter : BaseCounter
                 {
                     //Player is carrying Plate
                     if (plateKitchenObject.TryAddIngredient(GetKitchenObject().GetKitchenObjectSo()))
-                        GetKitchenObject().DestroySelf();
-
+                        KitchenObject.DestroyKitchenObject(GetKitchenObject());
                 }
                 else
                 {
                     if (GetKitchenObject().TryGetPlate(out plateKitchenObject))
                     {
                         if (plateKitchenObject.TryAddIngredient(player.GetKitchenObject().GetKitchenObjectSo()))
-                        {
-                            player.GetKitchenObject().DestroySelf();
-
-                        }
+                            KitchenObject.DestroyKitchenObject(player.GetKitchenObject());
                     }
                 }
             }

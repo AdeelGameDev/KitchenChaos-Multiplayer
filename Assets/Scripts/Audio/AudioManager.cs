@@ -18,7 +18,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        Player.Instance.OnPickedSomething += Player_OnPickedSomething;
+        Player.OnAnyPickedSomething += Player_OnPickedSomething;
 
         DeliveryManager.Instance.OnRecipeSuccess += DeliveryManager_OnRecipeSuccess;
         DeliveryManager.Instance.OnRecipeFail += DeliveryManager_OnRecipeFail;
@@ -42,7 +42,8 @@ public class AudioManager : MonoBehaviour
 
     private void Player_OnPickedSomething(object sender, System.EventArgs e)
     {
-        PlaySound(audioClipsRefs.objectPickup, Player.Instance.transform.position);
+        Player player = sender as Player;
+        PlaySound(audioClipsRefs.objectPickup, player.transform.position);
     }
 
     private void CuttingCounter_OnAnyCut(object sender, System.EventArgs e)
@@ -79,7 +80,7 @@ public class AudioManager : MonoBehaviour
 
     public void PlayPopupSound()
     {
-        PlaySound(audioClipsRefs.warning,Vector3.zero);
+        PlaySound(audioClipsRefs.warning, Vector3.zero);
     }
 
     public void PlayWarningSound(Vector3 position, float volume = 1)

@@ -8,6 +8,6 @@ public class GamePlayTimerUI : MonoBehaviour
 
     private void Update()
     {
-        timerImage.fillAmount = Gamemanager.Instance.GetGamePlayTimerNormalized();
+        timerImage.fillAmount = KitchenGameManager.Instance.GetGamePlayTimerNormalized();
     }
 }

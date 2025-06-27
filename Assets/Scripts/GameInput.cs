@@ -64,13 +64,13 @@ public class GameInput : MonoBehaviour
 
     private void InteractAlternate_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        if (Gamemanager.Instance.IsGamePlaying())
+        if (KitchenGameManager.Instance.IsGamePlaying())
             OnInteractAlternateAction?.Invoke(this, EventArgs.Empty);
     }
 
     private void Interact_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        if (Gamemanager.Instance.IsGamePlaying())
+        if (KitchenGameManager.Instance.IsGamePlaying())
             OnInteractAction?.Invoke(this, EventArgs.Empty);
     }
 

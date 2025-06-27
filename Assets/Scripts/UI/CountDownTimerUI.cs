@@ -1,6 +1,5 @@
 using System;
 using TMPro;
-using UnityEditor.Search;
 using UnityEngine;
 
 public class CountDownTimerUI : MonoBehaviour
@@ -18,13 +17,13 @@ public class CountDownTimerUI : MonoBehaviour
 
     private void Start()
     {
-        Gamemanager.Instance.OnStateChanged += GameState_OnStateChange;
+        KitchenGameManager.Instance.OnStateChanged += GameState_OnStateChange;
         Hide();
     }
 
     private void Update()
     {
-        int countNumber = Mathf.CeilToInt(Gamemanager.Instance.GetCountDownToStartTimer());
+        int countNumber = Mathf.CeilToInt(KitchenGameManager.Instance.GetCountDownToStartTimer());
         countDownText.text = countNumber.ToString();
 
         if (previousNumber != countNumber)
@@ -37,7 +36,7 @@ public class CountDownTimerUI : MonoBehaviour
 
     private void GameState_OnStateChange(object sender, EventArgs e)
     {
-        if (Gamemanager.Instance.IsCountDownToStartActive())
+        if (KitchenGameManager.Instance.IsCountDownToStartActive())
             Show();
         else
             Hide();

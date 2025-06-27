@@ -15,7 +15,7 @@ public class MusicManager : MonoBehaviour
         Instance = this;
         audioSource = GetComponent<AudioSource>();
 
-        volume =  PlayerPrefs.GetFloat(PLAYER_PREF_MUSIC_VOLUME, 1);
+        volume =  PlayerPrefs.GetFloat(PLAYER_PREF_MUSIC_VOLUME, 0);
         audioSource.volume = volume;
     }
 
